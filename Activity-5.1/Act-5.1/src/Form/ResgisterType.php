@@ -24,7 +24,7 @@ class ResgisterType extends AbstractType
             ->add('Password', RepeatedType::class,['type'=>PasswordType ::class,'first_options'  => ['label' => 'Password'],
             'second_options' => ['label' => 'Repeat password'],'required' => true,'attr' => [
                 'placeholder' => 'example@site.com'
-            ], 'constraints' => [
+            ], 'mapped' => false, 'constraints' => [
                 new NotBlank([
                     'message' => 'Please enter a password',
                 ]),
@@ -35,7 +35,7 @@ class ResgisterType extends AbstractType
                     'max' => 4096,
                 ]),]])
             // ->add('confirm_Password', PasswordType::class)   
-            ->add('save', SubmitType::class, ['label' => 'Create Email']); 
+            ->add('save', SubmitType::class, ['label' => 'Create user']); 
                 
         ;
     }
