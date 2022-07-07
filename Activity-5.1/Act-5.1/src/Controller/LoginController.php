@@ -42,7 +42,7 @@ class LoginController extends AbstractController
             $entityManager->persist($User);
             $entityManager->flush();  
             $this->addFlash('success', 'Created! ');
-            return $this->redirectToRoute('connect');
+            return $this->redirectToRoute('app_login');
         }
     return $this->render('login/signup.html.twig', [
         'form' => $form->createView(),
@@ -52,11 +52,11 @@ class LoginController extends AbstractController
     }
 
     
-        /**
-     * @Route("/connect", name="connect")
-     */
-    public function SignIn(): Response
-     {
-    return $this->render('login/signin.html.twig');
-    }
-}
+//         /**
+//      * @Route("/connect", name="connect")
+//      */
+//     public function SignIn(): Response
+//      {
+//     return $this->render('login/signin.html.twig');
+//     }
+ }

@@ -17,8 +17,15 @@ security:
             anonymous: lazy
             provider: in_database
             form_login:
-                login_path: connect
-                check_path: connect
+                login_path: app_login
+                check_path: app_login
+            guard:
+                authenticators:
+                    - App\Security\UserAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
 
 
             # activate different ways to authenticate

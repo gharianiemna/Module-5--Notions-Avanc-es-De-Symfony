@@ -35,7 +35,11 @@ class User implements UserInterface
      */
     private $Password;
     
-    public $confirm_Password;
+   /**
+     * @ORM\Column(type="json")
+     */
+    private $roles = [];
+
 
     public function getId(): ?int
     {
