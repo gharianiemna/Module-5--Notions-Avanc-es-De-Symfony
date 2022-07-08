@@ -3,18 +3,29 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+        img {
+      align-self:center;
+      margin-left:10rem;
+        margin-right:10rem;
+      }
+</style>
 <form method="post" action="{{ path('app_login') }}" >
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-        </div>
-    {% endif %}
+ <div class="row">
+       <div class="col-6 offset-3">
+           <div class="card bg-light">
+               <div class="card-body">
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <h1  class="text-center">Please sign in</h1>
+    <div  margin="auto">
+ <img class="text-center" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-128.png" alt="W3Schools.com">
+</div>
     <label for="inputEmail">Email</label>
     <input type="email" value="{{ last_username }}" name="Email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
     <label for="inputPassword">Password</label>
@@ -34,9 +45,17 @@
             </label>
         </div>
     #}
-
+<br>
     <button class="btn btn-lg btn-primary" type="submit">
         Sign in
     </button>
+     <br>
+        <br>
+        </div>
+</div>
+</div>
+</div>
 </form>
+<br>
+
 {% endblock %}

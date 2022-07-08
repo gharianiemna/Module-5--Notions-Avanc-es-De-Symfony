@@ -1,7 +1,7 @@
 Leçon 5.1 : Security Components
 
 Pour cette activité, l'objectif est de travailler avec Security Component Symfony
- Pour cela il est indispensable d'intervenir sur différentes parties du code, principalement dans :
+Pour cela il est indispensable d'intervenir sur différentes parties du code, principalement dans :
 -l'entité User,
 -le formulaire,
 -le composant de sécurité pour :
@@ -12,9 +12,12 @@ Pour cette activité, l'objectif est de travailler avec Security Component Symfo
 
 ***************************************************************************************************
 
-Pour executer le code voici les diffrenetes routes:
-@Route("/"): Home
-@Route("/Register"): pour creer un compte
-@Route("/connect"):pour se connecter
-
+Pour exécuter le code voici les différentes routes :
+@Route ("/"): Home
+@Route ("/Register"): pour créer un compte
+@Route ("/login"): pour se connecter
+@Route ("/index"): accessible uniquement après connexion pour voir les offres de voyage 
+@Route ("/admin"): accessible uniquement après connexion pour voir la liste des users
+@Route ("/user"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
+@Route ("/logout"):pour se déconnecter
 Vous Pouvez Aussi utiliser le Navbar!

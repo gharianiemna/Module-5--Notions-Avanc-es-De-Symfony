@@ -9,7 +9,7 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\User;
 use App\Form\ResgisterType;
-
+use App\Repository\UserRepository;
 
 class LoginController extends AbstractController
 {
@@ -26,19 +26,20 @@ class LoginController extends AbstractController
         /**
      * @Route("/Register", name="Regsiter")
      */
-    public function SignUp(Request $request, ManagerRegistry $doctrine,  UserPasswordEncoderInterface $userPasswordEncoder): Response
+    public function SignUp(Request $request, ManagerRegistry $doctrine, UserPasswordEncoderInterface $userPasswordEncoder): Response
      {
-    $User = new User();
+        $User = new User();
     $form = $this->createForm(ResgisterType::class, $User);
     $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $User->setRoles(['ROLE_USER']);
             $entityManager = $doctrine->getManager();
             $User->setPassword(
                 $userPasswordEncoder->encodePassword(
                         $User,
                         $form->get('Password')->getData()
                     )
-                );
+                );       
             $entityManager->persist($User);
             $entityManager->flush();  
             $this->addFlash('success', 'Created! ');
@@ -50,7 +51,15 @@ class LoginController extends AbstractController
 
     ]);
     }
-
+/**
+ * @Route("/utilisateurs", name="utilisateurs")
+ */
+public function usersList(UserRepository $users)
+{
+    return $this->render('admin/users.html.twig', [
+        'users' => $users->findAll(),
+    ]);
+}
     
 //         /**
 //      * @Route("/connect", name="connect")
