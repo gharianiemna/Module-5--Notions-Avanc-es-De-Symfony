@@ -15,7 +15,9 @@ Pour cela il est indispensable d'intervenir sur différentes parties du code, pr
 Pour exécuter le code voici les différentes routes :
 @Route ("/"): Home
 @Route ("/Register"): pour créer un compte
-@Route ("/login"): pour se connecter
+@Route ("/login"): pour se connecter:
+		- pour acceder au compte admin: email: ADMIN@ADMIN.COM + password: admin123123
+		- pour acceder au compte user: email: med@talan.com + password: 123456
 @Route ("/index"): accessible uniquement après connexion pour voir les offres de voyage 
 @Route ("/admin"): accessible uniquement après connexion pour voir la liste des users
 @Route ("/user"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
