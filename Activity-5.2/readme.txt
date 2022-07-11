@@ -1,9 +1,7 @@
-Leçon 5.2 : Security Components
-
-l'activité consiste à récupérer les données d'une liste déroulante à travers une table et enregistrer des données 
+Cette activité consiste à récupérer les données d'une liste déroulante à travers une table et enregistrer des données 
 affectant au moins 2 entités avec une relation entre eux
 
-our exécuter le code voici les différentes commandes:
+Pour exécuter le code voici les différentes commandes:
 
 1-Cloner le dépot
 https://github.com/gharianiemna/Module-5--Notions-Avanc-es-De-Symfony
@@ -23,3 +21,4 @@ php bin/console doctrine:migrations:migrate
 
 6-Lancer le serveur
 php bin/console server:run
+
