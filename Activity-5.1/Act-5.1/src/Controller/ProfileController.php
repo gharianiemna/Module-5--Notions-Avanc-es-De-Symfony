@@ -54,7 +54,7 @@ class ProfileController extends AbstractController
 public function accessDenied()
 {
     if ( $this->getUser() ) {
-        return $this->redirectToRoute('profile');
+        return $this->redirectToRoute('user');
     }
 
     return $this->redirectToRoute('app_login');
