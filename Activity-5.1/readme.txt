@@ -1,25 +1,27 @@
 Leçon 5.1 : Security Components
 
-Pour cette activité, l'objectif est de travailler avec Security Component Symfony
-Pour cela il est indispensable d'intervenir sur différentes parties du code, principalement dans :
--l'entité User,
--le formulaire,
--le composant de sécurité pour :
-	-les firewalls : quels sont les formulaires et route de login et logout
-	-les providers pour dire où sont les données utilisateurs
-	-les encoder pour l’algorithme d’encodage à utiliser
--les access_control pour définir les parties de l’application accessible ou non
+Pour exécuter le code voici les différentes commandes:
 
-***************************************************************************************************
+1-Cloner le dépot
+https://github.com/gharianiemna/Module-5--Notions-Avanc-es-De-Symfony
 
-Pour exécuter le code voici les différentes routes :
+2-Se déplacer dans le dossier de l'act 5.1 
+cd Activity-5.1
+cd Act-5.1
 
-1-composer i
-2-symfony console doctrine:database:create
-3-symfony console make:migration  
-4-symfony console doctrine:migrations:migrate 
-5composer require server
+3-Installer les dépendances 
+composer install
 
+4-Créer la base de données
+php bin/console doctrine:database:create
+
+5-Exécuter les migrations
+php bin/console doctrine:migrations:migrate
+
+6-Lancer le serveur
+php bin/console server:run
+
+7- Suivre les routes :
 @Route ("/"): Home
 @Route ("/Register"): pour créer un compte
 @Route ("/login"): pour se connecter:
