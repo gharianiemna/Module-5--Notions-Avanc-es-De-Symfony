@@ -31,6 +31,7 @@ class LoginController extends AbstractController
         $User = new User();
     $form = $this->createForm(ResgisterType::class, $User);
     $form->handleRequest($request);
+   
         if ($form->isSubmitted() && $form->isValid()) {
             $User->setRoles(['ROLE_USER']);
             $entityManager = $doctrine->getManager();
@@ -41,6 +42,7 @@ class LoginController extends AbstractController
                     )
                 );       
             $entityManager->persist($User);
+
             $entityManager->flush();  
             $this->addFlash('success', 'Created! ');
             return $this->redirectToRoute('app_login');
@@ -51,21 +53,6 @@ class LoginController extends AbstractController
 
     ]);
     }
-/**
- * @Route("/utilisateurs", name="utilisateurs")
- */
-public function usersList(UserRepository $users)
-{
-    return $this->render('admin/users.html.twig', [
-        'users' => $users->findAll(),
-    ]);
-}
-    
-//         /**
-//      * @Route("/connect", name="connect")
-//      */
-//     public function SignIn(): Response
-//      {
-//     return $this->render('login/signin.html.twig');
-//     }
+ 
+
  }
