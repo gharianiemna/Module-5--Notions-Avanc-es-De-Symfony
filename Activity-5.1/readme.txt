@@ -13,6 +13,13 @@ Pour cela il est indispensable d'intervenir sur différentes parties du code, pr
 ***************************************************************************************************
 
 Pour exécuter le code voici les différentes routes :
+
+1-composer i
+2-symfony console doctrine:database:create
+3-symfony console make:migration  
+4-symfony console doctrine:migrations:migrate 
+5composer require server
+
 @Route ("/"): Home
 @Route ("/Register"): pour créer un compte
 @Route ("/login"): pour se connecter:

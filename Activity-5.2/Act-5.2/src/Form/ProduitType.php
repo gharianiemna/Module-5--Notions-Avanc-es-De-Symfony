@@ -17,11 +17,7 @@ class ProduitType extends AbstractType
         $builder
             ->add('label')
             ->add('price')
-            ->add('category', CollectionType::class, [
-                'entry_type' => CategoryType::class,
-                'entry_options' => ['label' => false],
-                'allow_add' => true,
-            ])
+            ->add('category', CategoryType::class )
             ->add('save', SubmitType::class, ['label' => 'Save'])
             ;
         ;
