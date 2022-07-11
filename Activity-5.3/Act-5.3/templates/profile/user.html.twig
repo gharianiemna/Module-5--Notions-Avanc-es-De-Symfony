@@ -18,7 +18,9 @@
       }
 </style>
 <br>
-<div class="container">
+<div class="row">
+	<div class="col-6 offset-3">
+
 
             
      {% if is_granted('ROLE_ADMIN')%}
@@ -39,8 +41,44 @@
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
-        
-                
-        
     </div>
+</div>
+<div class="col-6 offset-3">
+
+<p class="lead">
+	<button class="btn btn-primary" type="button" onclick="onClickBtn()">Change Content</button>
+	<table class="table">
+		<tr>
+			<td>Username</td>
+			<td>Email</td>
+
+		</tr>
+		<tr>
+			<td id="username"></td>
+			<td id="email"></td>
+		</tr>
+	</table>
+</p>
+</div>
+</div>
+
 {% endblock %}
+
+{% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+function onClickBtn(event) {
+axios.get("/ajax").then(function (response) {
+document.getElementById('username').textContent = response.data.name;
+document.getElementById('email').textContent = response.data.email;
+})
+}
+document.querySelectorAll('btn-primary').foreach(function (link) {
+link.addEventListener('click'.onClickBtn);
+
+})
+</script>
+{% endblock %}
+
+
+

@@ -19,16 +19,15 @@ class AjaxController extends AbstractController
      
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = $this->getUser();
-        if ($request->isXmlHttpRequest() || $request->query->get('showJson') == 1) {
-            $jsonData = array();
-            $temp = array(
+        return  $this->json(
+            [
                     'name' => $user->getFullName(),
-                    'Email' => $user->getEmail(),
-                );
-                $jsonData[] = $temp; 
+                    'email' => $user->getEmail(),
+            ]);
+             
             
-            return new JsonResponse($jsonData);
-        } else {
+           
+  
             return $this->render('ajax/index.html.twig');
         } 
 
@@ -48,4 +47,3 @@ class AjaxController extends AbstractController
         
     
     }
-}

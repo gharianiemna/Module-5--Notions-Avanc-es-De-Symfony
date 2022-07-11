@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{# {% extends 'base.html.twig' %}
 
 {% block title %}Hello AJAXController!
 {% endblock %}
@@ -24,54 +24,37 @@
 		<h1 class="display-3">Welcome User</h1>
 		<hr class="my-4">
 		<p class="lead">
-			<a class="btn btn-primary" id="loadstudent" href="#">Load information</a>
-			<table class="table">
-				<tbody id="user"></tbody>
+            <button class="btn btn-primary" type="button" onclick="onClickBtn()">Change Content</button>
+            <table class="table">
+                <tr>
+                    <td>Username</td>
+                    <td>Email</td>
 
-			</table>
-
-
-			{#  <button class="btn btn-primary" type="button" onclick="loadDoc()">Change Content</button> #}
-			{# <span class='js-data'>name</span> #}
+                </tr>
+                <tr>
+                    <td id="username"></td>
+                    <td id="email"></td>
+                </tr>
+            </table>
 		</p>
 	</div>
 
 {% endblock %}
 {% block javascripts %}
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 	<script>
-
-		$(document).ready(function () {
-$("#loadstudent").on("click", function (event) {
-$.ajax({
-url: '/ajax',
-type: 'POST',
-dataType: 'json',
-async: true,
-
-
-success: function (data, status) {
-var e = $('<tr><th>Name</th><th>Address</th></tr>');
-$('#user').html('');
-$('#user').append(e);
-},
-error: function (xhr, textStatus, errorThrown) {
-alert('Ajax request failed.');
+function onClickBtn(event) {
+    axios.get("/ajax").then(function(response){
+    document.getElementById('username').textContent = response.data.name;
+    document.getElementById('email').textContent = response.data.email;
+        })
 }
-});
-});
-});
-// function onClickBtn(event) {
-// event.preventDefault();
-// const url=this.href;
-// axios.get(url).then(function (response){
-//     console.log(response);
-// })
-// }
-// document.querySelectorAll('btn-primary').foreach(function(link){
-// link.addEventListener('click'.onClickBtn);
+document.querySelectorAll('btn-primary').foreach(function(link){
+link.addEventListener('click'.onClickBtn);
 
-// })
+})
 	</script>
 
 
-{% endblock %}
+{% endblock %} #}
