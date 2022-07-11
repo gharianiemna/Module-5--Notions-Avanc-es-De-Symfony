@@ -27,13 +27,20 @@ INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `roles`) VALUES
 php bin/console server:run
 
 8- Suivre les routes :
-@Route ("/"): Home
-@Route ("/Register"): pour créer un compte
-@Route ("/login"): pour se connecter:
+- Page acceuil Home
+	 "/"
+- Page inscription 
+	"/Register"
+- Page connection
+ 	"/login": 
 		- pour acceder au compte admin: email: ADMIN@ADMIN.COM + password: admin123123
 		- pour acceder au compte user: email: med@talan.com + password: 123456
-@Route ("/index"): accessible uniquement après connexion pour voir les offres de voyage 
-@Route ("/admin"): accessible uniquement après connexion pour voir la liste des users
-@Route ("/user"): accessible uniquement après connexion affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non.
-@Route ("/logout"):pour se déconnecter
+- Page offres pour voir les offres de voyage
+  	"/index" 	==> accessible uniquement après connexion 
+- Page Admin acces unique admin: affichage la liste des users
+	 "/admin"	==> accessible uniquement après connexion 
+- Page user affiche un élément différent selon si l’utilisateur possède le rôle ROLE_ADMIN ou non
+ 	"/user"	==> accessible uniquement après connexion 
+- Pour se déconnecter: 
+ 	"/logout"
 Vous Pouvez Aussi utiliser le Navbar!
