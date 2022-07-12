@@ -21,7 +21,7 @@ php bin/console doctrine:migrations:migrate
 6-Exécuter la requete SQL suivante (à partir du fichier dbuserauth.sql)
 INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `roles`) VALUES
 ('', 'ADMIN', 'ADMIN@ADMIN.COM', '$2y$13$EdZYhWz7bSmBQ/d5cw6kfOGhCC55Kxpj3U01g7nTkyYADiBjcGVYK', '[\"ROLE_ADMIN\"]'),
-('', 'ahmed dhieb', 'med@talan.com', '$2y$13$9/dCMjX9AZaOHviJPNbOEuu7/dGqfRQr7dQCmKxywM93sbGzBwmLW', '[\"ROLE_USER\"]'),
+('', 'ahmed', 'med@talan.com', '$2y$13$9/dCMjX9AZaOHviJPNbOEuu7/dGqfRQr7dQCmKxywM93sbGzBwmLW', '[\"ROLE_USER\"]'),
 
 7- Lancer le serveur
 php bin/console server:run
@@ -37,3 +37,4 @@ php bin/console server:run
   	"/ajax-index" 	==> accessible uniquement après connexion 
 
 Vous Pouvez Aussi utiliser le Navbar!
+   
