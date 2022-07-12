@@ -12,13 +12,7 @@ cd Act-5.4
 3-Installer les dépendances 
 composer install
 
-4-Créer la base de données
-php bin/console doctrine:database:create
-
-5-Exécuter les migrations
-php bin/console doctrine:migrations:migrate
-
-7- Lancer le serveur
-php bin/console server:run
-
-8- Suivre les routes :
+4- excuter dans le terminal les commandes des tests unitaires suivantes :
+* méthode getState: vendor/bin/phpunit --filter testgetState tests/Service/FileSystemImprovedTest.php
+* méthode createFile: vendor/bin/phpunit --filter testcreateFile tests/Service/FileSystemImprovedTest.php
+* méthode deleteFile: vendor/bin/phpunit --filter testdeleteFile tests/Service/FileSystemImprovedTest.php

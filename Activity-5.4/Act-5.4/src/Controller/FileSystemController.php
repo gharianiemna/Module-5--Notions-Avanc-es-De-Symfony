@@ -27,7 +27,7 @@ class FileSystemController extends AbstractController
    
     { 
         $finder = new Finder();
-        $finder->directories()->in('../..')->name('web');
+        $finder->directories()->in('../..')->name('fsi');
         foreach ($finder as $f) {$contents = $f->getRealPath();}
 
         if (!$filesystem->exists($filename) .'txt'){
@@ -42,7 +42,7 @@ class FileSystemController extends AbstractController
      */
     public function createFile( Filesystem $filesystem, $filename, $text ): Response
     {   $finder = new Finder();
-        $finder->directories()->in('../..')->name('web');
+        $finder->directories()->in('../..')->name('fsi');
         foreach ($finder as $f) {$contents = $f->getRealPath();}
          $filesystem->appendToFile($contents.'/'.$filename, $text );
             return new Response($filename . ' is added with the text: ' . $text);
@@ -54,7 +54,7 @@ class FileSystemController extends AbstractController
     public function copierText( Filesystem $filesystem, $source, $target ): Response
     { 
         $finder = new Finder();
-        $finder->directories()->in('../..')->name('web');
+        $finder->directories()->in('../..')->name('fsi');
         foreach ($finder as $f) {$contents = $f->getRealPath();}
         $src_dir_path = $contents.'/'.$source;
             $dest_dir_path = $contents . "/".$target;
@@ -74,7 +74,7 @@ class FileSystemController extends AbstractController
     public function removeText( Filesystem $filesystem, $filename ): Response
     { 
         $finder = new Finder();
-        $finder->directories()->in('../..')->name('web');
+        $finder->directories()->in('../..')->name('fsi');
         foreach ($finder as $f) {$contents = $f->getRealPath();}
 
         $src_dir_path = $contents.'/'.$filename;
@@ -91,7 +91,7 @@ class FileSystemController extends AbstractController
     { 
         
     $finder = new Finder();
-        $finder->directories()->in('../..')->name('web');
+        $finder->directories()->in('../..')->name('fsi');
 
     foreach ($finder as $f) {
     $contents = $f->getRealPath();

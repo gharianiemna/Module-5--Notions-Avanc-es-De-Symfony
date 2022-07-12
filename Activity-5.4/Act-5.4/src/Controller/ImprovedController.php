@@ -34,38 +34,47 @@ class ImprovedController extends AbstractController
          /**
      * @Route("/create-file/{filename}", name="create_empty_file")
      */
-    public function create_Empty_File(FileSystemImproved $fileSystemImproved, $filename): Response
+    public function create_File(FileSystemImproved $fileSystemImproved, $filename): Response
    
-    { $file= $fileSystemImproved->createEmptyFile($filename);
-        $this->addFlash('success', $file);
-        return new JsonResponse(json_encode($file));
+    { $file= $fileSystemImproved->createFile($filename);
+        // $this->addFlash('success', $file);
+        return new JsonResponse($file);
     }
    
 
     /**
      * @Route("/write-in-file/{filename}/{text}", name="create_file_with_text")
      */
-    public function create_File( FileSystemImproved $fileSystemImproved, $filename, $text ): Response
+    public function write_InFile( FileSystemImproved $fileSystemImproved, $filename, $text ): Response
     {  
-        $file= $fileSystemImproved-> createFile($filename, $text );
+        $file= $fileSystemImproved-> writeInFile($filename, $text );
          return new JsonResponse(json_encode($file));
     }
 
            /**
      * @Route("/delete-file/{filename}", name="remove_text")
      */
-    public function remove_file(FileSystemImproved $fileSystemImproved, $filename ): Response
+    public function delete_File(FileSystemImproved $fileSystemImproved, $filename ): Response
     { 
-        $file= $fileSystemImproved->removeFile($filename);
+        $file= $fileSystemImproved->deleteFile($filename);
         return new JsonResponse(json_encode($file));
     }
 
-    //     /**
-    //  * @Route("/Improveds/new")
-    //  */
-    // public function new(FileSystemImproved $messageGenerator): Response
-    // {   $message = $messageGenerator->getHappyMessage();
-    //     $this->addFlash('success', $message);
-    //     return new Response($message);
-    // }
+    /**
+     * @Route("/state", name="state")
+     */
+    public function get_State(FileSystemImproved $fileSystemImproved): Response
+    {
+        $file = $fileSystemImproved->getState();
+        return new JsonResponse($file);
+    }
+    /**
+     * @Route("/read_file/{file_name}", name="read_file_fsi")
+     */
+    public function read_File(FileSystemImproved $fileSystemImproved, $file_name): Response
+    {
+        $res = $fileSystemImproved->readFile($file_name);
+        return new JsonResponse($res);
+    }
+
 }
