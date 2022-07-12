@@ -19,15 +19,14 @@ class FileSystemImproved
     public function __construct(){
         $this->finder = new Finder();
         $this->filesystem = new Filesystem();
-
     }
+    
     public function getState(){
         //  $files=[];
         $this->finder->in(dirname(getcwd()))->path('fsi');
         foreach ($this->finder as $file) {
             $path = $file->getPath() . '\\';
         }
-
         $resultat = $this->finder->files()->in($path);
         foreach ($resultat as $file) {
             $files[] = $file->getFilename();
@@ -37,13 +36,11 @@ class FileSystemImproved
 
 
      public function createFile($filename){
-
         $this->filesystem->touch("C:\\formation talan php\Module-5 -Notions Avancées De Symfony\Activity-5.4\Act-5.4\\vendor\symfony\http-client-contracts\Test\Fixtures\web\\fsi\\".$filename.".txt");
         $this->finder->in(dirname(getcwd()))->path('fsi');
         foreach ($this->finder as $file) {
             $path = $file->getPath().'\\';
         }
-
         $resultat = $this->finder->files()->in($path);
         foreach ($resultat as $file) {
             $files[] = $file->getFilename();
@@ -57,11 +54,9 @@ class FileSystemImproved
         if (!$files->hasResults()) {
             return false;
         }
-
         foreach ($files as $file) {
             $path = $file->getRealPath();
         }
-
         $this->filesystem->remove($path);
         return true;
     }
@@ -84,14 +79,15 @@ class FileSystemImproved
 
     public function readFile($filename)
     {
-        $this->finder->directories()->in('../..')->name('fsi');
-        foreach ($this->finder as $f) {
-            $contents = $f->getRealPath();
+         $files = $this->finder->in(dirname(getcwd()))->path($filename.'.txt');
+        if (!$files->hasResults()) {
+            return false;
         }
-
-        $src_dir_path = $contents . '/' . $filename;
-        $file = fopen($src_dir_path, 'r+');
-        $res = fread($file, filesize($src_dir_path));
+        foreach ($files as $file) {
+            $path = $file->getRealPath();
+        }
+        $file = fopen($path,'r+');
+        $res = fread($file,filesize($path));
         return $res;
     }
 

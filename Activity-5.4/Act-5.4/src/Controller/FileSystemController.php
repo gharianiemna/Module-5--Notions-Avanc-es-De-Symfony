@@ -66,8 +66,6 @@ class FileSystemController extends AbstractController
             }
    
     }
-
-
         /**
      * @Route("/delete/{filename}", name="remove_text")
      */
@@ -76,7 +74,6 @@ class FileSystemController extends AbstractController
         $finder = new Finder();
         $finder->directories()->in('../..')->name('fsi');
         foreach ($finder as $f) {$contents = $f->getRealPath();}
-
         $src_dir_path = $contents.'/'.$filename;
         $filesystem->remove(['symlink', $src_dir_path , $filename]);
     return new Response('removed successfuly ');
@@ -88,15 +85,12 @@ class FileSystemController extends AbstractController
      * @Route("/find", name="find_path")
      */
     public function find( Filesystem $filesystem ): Response
-    { 
-        
-    $finder = new Finder();
+    {    
+        $finder = new Finder();
         $finder->directories()->in('../..')->name('fsi');
-
-    foreach ($finder as $f) {
-    $contents = $f->getRealPath();
-
-}
-return new Response($contents);
-}
+        foreach ($finder as $f) {
+        $contents = $f->getRealPath();
+    }
+        return new Response($contents);
+    }
 }

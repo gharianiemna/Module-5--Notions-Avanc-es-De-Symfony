@@ -13,6 +13,14 @@ cd Act-5.4
 composer install
 
 4- excuter dans le terminal les commandes des tests unitaires suivantes :
-* méthode getState: vendor/bin/phpunit --filter testgetState tests/Service/FileSystemImprovedTest.php
-* méthode createFile: vendor/bin/phpunit --filter testcreateFile tests/Service/FileSystemImprovedTest.php
-* méthode deleteFile: vendor/bin/phpunit --filter testdeleteFile tests/Service/FileSystemImprovedTest.php
+
+a- pour exécuter l'ensemble des test: vendor/bin/phpunit 
+
+b- pour tester les methodes une par une:
+* méthode getState:    vendor/bin/phpunit --filter testgetState tests/Service/FileSystemImprovedTest.php
+* méthode createFile:  vendor/bin/phpunit --filter testcreateFile tests/Service/FileSystemImprovedTest.php
+* méthode deleteFile:  vendor/bin/phpunit --filter testdeleteFile tests/Service/FileSystemImprovedTest.php
+* méthode writeInFile: vendor/bin/phpunit --filter testWriteInFile tests/Service/FileSystemImprovedTest.php
+		       vendor/bin/phpunit --filter testWriteNoFile tests/Service/FileSystemImprovedTest.php
+* méthode readFile:    vendor/bin/phpunit --filter testReadFile tests/Service/FileSystemImprovedTest.php
+		       vendor/bin/phpunit --filter testReadNoFile tests/Service/FileSystemImprovedTest.php
