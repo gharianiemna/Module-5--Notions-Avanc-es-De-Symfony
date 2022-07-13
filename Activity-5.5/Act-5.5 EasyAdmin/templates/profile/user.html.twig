@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code {  padding: 2px 6px; }
+</style>
+<br>
+<div class="container">
+
+            
+     {% if is_granted('ROLE_ADMIN')%}
+        
+            <div class="card text-white bg-danger mb-2" style="max-width: 60rem;">
+                <div class="card-header">ADMIN</div>
+                <div class="card-body">
+		            <p class="card-text">The Admin page gives you access to the Analytics administrative features. At the bottom-left of the page, hover over the gear icon and click Admin to open the page.
+                     </p>
+                </div>
+            </div>
+{% endif %}  
+{% if app.user %}
+	<h2>CHOISISSEZ VOTRE PROCHAINE DESTINATION :</h2>
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="card border-info mb-3" style="max-width: 20rem; min-width: 20rem;">
+				<h5 class="card-header">Maldives</h5>
+				<div class="card-body">
+					<img src="https://th.bing.com/th/id/R.76af3b7d1553ceb4a81038d68ff09e3b?rik=tku0GWk2UDGYWQ&riu=http%3a%2f%2ffr.zooverresources.com%2fimages%2fE471203L1B2981910D0W245H245RT2%2fMercure-Maldives-Kooddoo.jpg&ehk=J9pVhonLWVF5pTAPlbgyBaSFFmQFZl4xzzmLuXVSojA%3d&risl=&pid=ImgRaw&r=0" alt="maldives" width="280px" height="300px">
+					<p>
+						Envie de réveiller la jalousie de tous vos amis ? Mentionnez simplement en passant que vous allez passer vos vacances aux Maldives, de préférence au beau milieu de l'hiver. </p>
+
+				</div>
+				<div class="card-footer">
+					<p class="card-text">Price: 6000  dt</p>
+				</div>
+				<div class="card-footer">
+					<button type="button" class="btn btn-warning">Reserver</button>
+				</div>
+
+			</div>
+			<div class="card border-info mb-3" style="max-width: 20rem; min-width: 20rem;">
+				<h5 class="card-header">Dubai</h5>
+				<div class="card-body">
+					<img src="https://th.bing.com/th/id/R.566ce1bd83fd459ec3b4043b10d33974?rik=v3nr%2f3fGHbztCw&riu=http%3a%2f%2fdestination.lps-china.com%2fwp-content%2fuploads%2fsites%2f6%2f2016%2f01%2fDUBAI-MAIN-PIC1.jpg&ehk=DI1uC3PmXaGgP6jITZFEcB%2fIGS183e1Tjg44vhmmJEw%3d&risl=&pid=ImgRaw&r=0" alt="dubai" width="280px" height="300px">
+					<p>Hôtels de luxe, architecture avant-gardiste, boutiques branchées, culture et merveilles naturelles… Dubaï a tout pour elle</p>
+
+				</div>
+				<div class="card-footer">
+					<p class="card-text">Price: 8000  dt</p>
+				</div>
+				<div class="card-footer">
+					<button type="button" class="btn btn-warning">Reserver</button>
+				</div>
+
+
+			</div>
+			<div class="card border-info mb-3" style="max-width: 20rem; min-width: 20rem;">
+				<h5 class="card-header">Paris</h5>
+				<div class="card-body">
+					<img src="https://th.bing.com/th/id/OIP.9KwE5DGZBgJjWZuMCu3rBwAAAA?pid=ImgDet&rs=1" alt="paris" width="280px" height="300px">
+					<p>Aucun autre endroit au monde ne fait autant rêver que Paris. La ville séduit par son art, son architecture, sa culture et sa cuisine. Préparez-vous à vous approprier Paris.</p>
+
+				</div>
+				<div class="card-footer">
+					<p class="card-text">Price: 4000  dt</p>
+				</div>
+				<div class="card-footer">
+					<button type="button" class="btn btn-warning">Reserver</button>
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{% endblock %}

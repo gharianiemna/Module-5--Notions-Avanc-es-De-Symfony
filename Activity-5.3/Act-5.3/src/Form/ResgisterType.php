@@ -19,7 +19,7 @@ class ResgisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('FullName', TextType::class)
+            ->add('userName', TextType::class)
             ->add('Email')
             ->add('Password', RepeatedType::class,['type'=>PasswordType ::class,'first_options'  => ['label' => 'Password'],
             'second_options' => ['label' => 'Repeat password'],'required' => true,'attr' => [

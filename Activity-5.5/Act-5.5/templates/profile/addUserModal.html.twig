@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+	.example-wrapper {
+		margin: 1em auto;
+		max-width: 800px;
+		width: 95%;
+		font: 18px / 1.5 sans-serif;
+	}
+	.example-wrapper code {
+		background: #F5F5F5;
+		padding: 2px 6px;
+	}
+</style>
+
+
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="signLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="signLabel">
+					<em class="fa fa-user-plus"></em>
+					<?php echo MOD_SIGN1A ?></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="<?php echo MOD_CLOSE ?>">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<form id="register_form" method="post" style="margin:10px;">
+					<div class="form-group">
+						<label for="nom">Pseudo</label>
+						<input type="text" placeholder="Entrez votre pseudo" id="pseudo" name="pseudo" maxlength="16" class="form-control" required/>
+					</div>
+					<div class="form-group">
+						<label for="pass1">Mot de passe</label>
+						<input type="password" placeholder="6 caractères minimum" id="pass1" name="pass1" class="form-control" required/>
+					</div>
+					<div class="form-group">
+						<label for="pass2">Confirmez votre mot de passe</label>
+						<input type="password" id="pass2" name="pass2" class="form-control" required/>
+					</div>
+					<div class="form-group">
+						<label for="email">Votre adresse e-mail</label>
+						<input type="email" placeholder="pseudo" id="email" name="email" class="form-control" required/>
+					</div>
+					<div id="status" class="alert alert-primary" role="alert">
+						Merci de remplir tous les champs.
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="submit" id="bRegister" class="btn btn-primary btn-sm" value="S'inscrire"/>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

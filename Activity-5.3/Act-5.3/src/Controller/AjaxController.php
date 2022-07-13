@@ -70,8 +70,8 @@ class AjaxController extends AbstractController
         $idx = 0;
         foreach ($users as $student) {
             $temp = array(
-                'name' => $student->getName(),
-                'address' => $student->getAddress(),
+                'name' => $student->getUserName(),
+                
             );
             $jsonData[$idx++] = $temp;
             
