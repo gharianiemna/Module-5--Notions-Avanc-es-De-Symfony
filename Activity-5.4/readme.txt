@@ -24,3 +24,6 @@ b- pour tester les methodes une par une:
 		       vendor/bin/phpunit --filter testWriteNoFile tests/Service/FileSystemImprovedTest.php
 * méthode readFile:    vendor/bin/phpunit --filter testReadFile tests/Service/FileSystemImprovedTest.php
 		       vendor/bin/phpunit --filter testReadNoFile tests/Service/FileSystemImprovedTest.php
+
+5-Vérifier la couverture du code:
+vendor/bin/phpunit --coverage-html public/test-coverage

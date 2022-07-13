@@ -19,6 +19,9 @@ class FileSystemImproved
     public function __construct(){
         $this->finder = new Finder();
         $this->filesystem = new Filesystem();
+           if (!$this->filesystem->exists('C\formation talan php\Module-5 -Notions Avancées De Symfony\Activity-5.4\Act-5.4\vendor\symfony\http-client-contracts\Test\Fixtures\web\\fsi')) {
+            $this->filesystem->mkdir('C\formation talan php\Module-5 -Notions Avancées De Symfony\Activity-5.4\Act-5.4\vendor\symfony\http-client-contracts\Test\Fixtures\web\\fsi');
+        }
     }
     
     public function getState(){
