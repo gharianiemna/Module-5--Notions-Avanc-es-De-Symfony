@@ -6,9 +6,12 @@
 </style>
 <br>
 <div class="jumbotron">
- <img src= "https://www.centre-inffo.fr/content/uploads/2021/05/quelleformationdigitale.jpg" alt='admin' width="300px">
+<div class="row">
+ <img src= "https://www.centre-inffo.fr/content/uploads/2021/05/quelleformationdigitale.jpg" alt='admin' width="150px" >
   <h1 class="display-3">Welcome Admin</h1>
-  <p class="lead">this is your page, you can manage your youser list here bellow:</p>
+</div>
+<br>
+  <p class="lead">This is your page, you can manage your user list here bellow:</p>
   <hr class="my-4">
  {% for x in users %} 
     <li> {{ x.userName }}  </li> 

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<br>
+<div class="container">
+
+<div class="row ">
+ <img src= "https://www.centre-inffo.fr/content/uploads/2021/05/quelleformationdigitale.jpg" alt='admin' width="150px" >
+<div >
+
+  <h4 class="display-4">Welcome Admin</h4>
+<p class="lead">This is your page</p>
+</div>
+</div>
+<br>
+ 
+  <hr class="my-4">
+<div id="presidents">Loading...</div>
+
+<!-- Insert this at the end of your body element, but before the closing tag -->
+<script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
+<script>
+	$(function () {
+$('#presidents').initDataTables({{ datatable_settings(datatable) }});
+});
+</script>
+</div>
+
+  
+{% endblock %}
