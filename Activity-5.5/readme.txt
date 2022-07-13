@@ -8,7 +8,7 @@ https://github.com/gharianiemna/Module-5--Notions-Avanc-es-De-Symfony
 
 2-Se déplacer dans le dossier de l'act 5.5
 cd Activity-5.5
-cd Act-5.5
+cd Act-5.5 EasyAdmin
 
 3-Installer les dépendances 
 composer install
