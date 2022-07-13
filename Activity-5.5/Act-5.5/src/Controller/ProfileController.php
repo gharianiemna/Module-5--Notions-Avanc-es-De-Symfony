@@ -10,6 +10,9 @@ use Omines\DataTablesBundle\Adapter\ArrayAdapter;
 use Omines\DataTablesBundle\Column\TextColumn;
 use Omines\DataTablesBundle\DataTableFactory;
 use Symfony\Component\HttpFoundation\Request;
+use Omines\DataTablesBundle\Adapter\Doctrine\ORMAdapter;
+use Omines\DataTablesBundle\Adapter\Doctrine\ORM\SearchCriteriaProvider;
+
 
 class ProfileController extends AbstractController
 {
@@ -23,12 +26,15 @@ class ProfileController extends AbstractController
     {       
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $table = $dataTableFactory->create()
-            ->add('firstName', TextColumn::class)
-            ->add('lastName', TextColumn::class)
-            ->createAdapter(ArrayAdapter::class, [
-                ['firstName' => 'Donald', 'lastName' => 'Trump'],
-                ['firstName' => 'Barack', 'lastName' => 'Obama'],
-            ])
+                 ->add('userName', TextColumn::class, ['label' => ' User name', 'className' => 'bold'])
+                ->add('Age', TextColumn::class, ['label' => ' User Age', 'className' => 'bold'])
+                 ->add('Adress', TextColumn::class, ['label' => ' User Addresse', 'className' => 'bold'])
+                  ->add('Email', TextColumn::class, ['label' => ' User Email', 'className' => 'bold'])
+                ->createAdapter(ORMAdapter::class, [
+                 'entity' => User::class,
+  
+                ])
+                
             ->handleRequest($request);
 
         if ($table->isCallback()) {

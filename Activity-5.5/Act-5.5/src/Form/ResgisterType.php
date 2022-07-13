@@ -22,7 +22,7 @@ class ResgisterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('FullName', TextType::class)
+            ->add('userName', TextType::class)
              ->add('Age', TextType::class, ['required' => false,
                         'constraints'=> [new LessThan([
                         'value' => 100]),
@@ -30,7 +30,7 @@ class ResgisterType extends AbstractType
                          'value' => 1
                         ])]
                          ])
-            ->add('Adress', TextType::class,  ['required' => false], ['attr' => ['maxlength' => 255]])
+            ->add('Adress', TextType::class,  ['required' => false], ['attr' => ['maxlength' => 255]], ['label' => 'Addresse'])
            
             ->add('Email')
             ->add('Password', RepeatedType::class,['type'=>PasswordType ::class,'first_options'  => ['label' => 'Password'],

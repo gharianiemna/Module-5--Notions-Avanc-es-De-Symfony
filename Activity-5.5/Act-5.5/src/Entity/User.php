@@ -56,12 +56,9 @@ class User implements UserInterface
         return $this->id;
     }
 
-    public function getFullName(): ?string
-    {
-        return $this->userName;
-    }
 
-    public function setFullName(string $userName): self
+
+    public function setUserName(string $userName): self
     {
         $this->userName = $userName;
 
@@ -99,7 +96,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->Email;
+        return (string) $this->userName;
     }
 
     /**
