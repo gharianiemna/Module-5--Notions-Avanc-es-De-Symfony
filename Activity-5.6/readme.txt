@@ -31,7 +31,9 @@ INSERT INTO `user` (`id`, `user_name`, `email`, `password`, `roles`, `age`, `adr
 php bin/console server:run
 
 9- lancer la commande SendEmails:
-php bin/console SendEmails
+* Pour envoyer l'email à tous les utilisateurs:   php bin/console SendEmails
+* Pour envoyer l'email à un utilisateur spécifique(ecrivez l'email au lieu de 'Useremail'): php bin/console SendEmailToOneUse Useremail
+*our envoyer l'email à un utilisateur spécifique(ecrivez l'email au lieu de 'Useremail', choix= 'connexion' ou 'inscription'): php bin/console SendEmailToOneUse Useremail --option1=choix
 
 10- Suivre les routes :
 - Page acceuil Home
