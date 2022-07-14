@@ -54,11 +54,11 @@ class SendEmailsCommand extends Command
             ->subject('Bonjour')
             ->text('Bonjour, Nous vous souhaitons une agréable journée')
             ->html('Bonjour '.$Name.', Nous vous souhaitons une agréable journée');
-             sleep(10); 
+             sleep(5); 
              $this->mailer->send($email);
         }
         $io->progressFinish();
-        $io->success(' Email sent to users!');
+        $io->success('Email sent to users!');
         return 0;
        
     }

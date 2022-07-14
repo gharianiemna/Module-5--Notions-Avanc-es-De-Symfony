@@ -1,4 +1,4 @@
-Leçon 5.5 : Datatables
+Leçon 5.6 :  Commandes Dans Symfony
 
 
 Pour exécuter le code voici les différentes commandes:
