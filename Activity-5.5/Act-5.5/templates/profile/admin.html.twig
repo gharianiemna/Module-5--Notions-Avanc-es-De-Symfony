@@ -16,47 +16,45 @@
 </div>
 </div>
 <br>
- 
-  <hr class="my-4">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-<!-- bouton pour modifier l profile-->
-
-<a class="dt-button buttons-collection buttons-colvis btn btn-white btn-primary btn-bold" data-toggle="modal" data-target="#dataModal" href="#" id="add_user">
-
-	Ajouter un user
-
-</a>
-
-<!-- dataModal -->
-<div class="modal" id="modal-title">
-	<div class="modal-card">
-		<header class="modal-card-head">
-			<p class="modal-card-title">Ajouter un user</p>
-		</header>
-		<section class="modal-card-body">
-			{{ form(form, {'attr': {'id': 'form'}}) }}
-			</section>
-			<footer class="modal-card-foot">
-				<button id="submit_task" class="button is-success">Save changes</button>
-				<button class="button" onclick="closeModal()">Cancel</button>
-			</footer>
-		</div>
-	</div>
-
-
-
-
-
-<!-- code javascript-->
-
-
-
 <hr class="my-4">
 
+<script>
+$(document).ready(function () {
+$('#MybtnModal').click(function () {
+$('#Mymodal').modal('show')
+});
+});
+</script>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+	Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- .modal -->
+
+  <hr class="my-4">
 <div id="presidents">Loading...</div>
+
 <!-- Insert this at the end of your body element, but before the closing tag -->
 <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>
 <script>
@@ -75,32 +73,10 @@ $('#presidents').initDataTables({{ datatable_settings(datatable) }}, {
 	        // alert('Redrawing table');
 	    });
 });
-});
-</script>
 
-
-<!-- jQuery -->
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.js') }}"></script>
-<script>
-	$(document).ready(function () {
-$('#add_user').click(function () { // Afficher Le titre de popup
-//  formulaire de modification
-var url = '{{ path('admin') }}';
-$.ajax({
-type: 'post',
-url: url,
-success: function (data) { // résultat de action edit : formulaire inclure dans popup
-$('#modal_detail').html(data);
-// Affichage de nouvelle popup
-}
-});
-});
 });
 </script>
 </div>
+
   
 {% endblock %}
